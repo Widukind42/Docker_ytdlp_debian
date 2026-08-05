@@ -24,10 +24,10 @@ see `Dockerfile`
 ## Tutorial
 
 ```sh
-podman run --rm -it -v "\$(pwd):/out" Widukind42/ytdlp_debian [URL|(yt-dlp parameters)]
+podman run --rm -it -v "\$(pwd):/data" Widukind42/ytdlp_debian [URL|(yt-dlp parameters)]
 
 # With SELinux in place:
-podman run --rm -it -v "\$(pwd):/out\:z" Widukind42/ytdlp_debian [URL|(yt-dlp parameters)]
+podman run --rm -it -v "\$(pwd):/data:z" Widukind42/ytdlp_debian [URL|(yt-dlp parameters)]
 ```
 /out is the working directory.
 To build this image via Podman, enter the following command in the directory where the Dockerfile is stored:
@@ -36,7 +36,7 @@ podman build -t ytdlp_debian .
 ```
 Here’s an example of how I use it myself:
 ```sh
-podman run --rm -it -v "$(pwd):/out:z" ytdlp_debian --config-locations ./youtube_config/
+podman run --rm -it -v "$(pwd):/data:z" ytdlp_debian --config-locations ./yt_config/
 ```
 The directory yt_config holds the yt-dlp.conf file and an input URLs text file.
 
