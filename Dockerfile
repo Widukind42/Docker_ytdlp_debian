@@ -10,8 +10,8 @@ COPY --from=denoland/deno:bin-2.9.4 /deno /usr/local/bin/deno
 COPY --from=mwader/static-ffmpeg /ffmpeg /usr/local/bin/
 COPY --from=mwader/static-ffmpeg /ffprobe /usr/local/bin/
 
-
-RUN pip3 install yt-dlp
+# A maybe more challenging variation. Just spotted and tried with the alpine variant
+RUN pip3 install --break-system-packages --no-cache-dir --upgrade "yt-dlp[default,curl-cffi]"
 
 # Try to run it so we know it works
 RUN yt-dlp --version
