@@ -58,35 +58,9 @@ The directory yt_config holds the yt-dlp.conf file and an input URLs text file.
 [7]: https://github.com/ytdl-org/youtube-dl/blob/master/LICENSE
 
 ---
-- podman --version
-  podman version 5.4.2
-
-- cat /etc/os-release
-    PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
-    NAME="Debian GNU/Linux"
-    VERSION_ID="13"
-    VERSION="13 (trixie)"
-    VERSION_CODENAME=trixie
-    DEBIAN_VERSION_FULL=13.6
-    ID=debian
-    HOME_URL="https://www.debian.org/"
-    SUPPORT_URL="https://www.debian.org/support"
-    BUG_REPORT_URL="https://bugs.debian.org/"
-
-
-- yt-dlp --version
-   2026.07.04
-
-- deno --version
-   deno 2.9.4 (stable, release, x86_64-unknown-linux-gnu)
-   v8 15.0.245.2-rusty
-   typescript 6.0.3
-
-- python --version
-   Python 3.14.6
-
-- fmpeg 
-  ffmpeg version 8.1.2 Copyright (c) 2000-2026 the FFmpeg developers
-  built with gcc 13.2.1 (Alpine 13.2.1_git20240309) 20240309
-
-  
+### Release-Stands for ghcr.io/widukind42/ytdlp_debian as of 2026-08-22
+- Debian GNU/Linux 13 (trixie)
+- yt-dlp version 2026.08.19
+- ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers
+- ffprobe version 9.0.1 Copyright (c) 2007-2026 the FFmpeg developers
+- deno 2.9.4 (stable, release, x86_64-unknown-linux-gnu)
