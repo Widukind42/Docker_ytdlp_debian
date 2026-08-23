@@ -57,10 +57,3 @@ The directory yt_config holds the yt-dlp.conf file and an input URLs text file.
 [6]: https://github.com/yt-dlp/yt-dlp/blob/master/LICENSE
 [7]: https://github.com/ytdl-org/youtube-dl/blob/master/LICENSE
 
----
-### Release-Stands for ghcr.io/widukind42/ytdlp_debian as of 2026-08-22
-- Debian GNU/Linux 13 (trixie)
-- yt-dlp version 2026.08.19
-- ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers
-- ffprobe version 9.0.1 Copyright (c) 2007-2026 the FFmpeg developers
-- deno 2.9.4 (stable, release, x86_64-unknown-linux-gnu)
