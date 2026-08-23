@@ -1,0 +1,45 @@
+name: Update Inventory Info
+on:
+  push:
+    branches: [ main ]  # Läuft bei Push in den main-Branch
+  workflow_dispatch:    # Ermöglicht manuelles Auslösen über die GitHub-Oberfläche
+  
+jobs:
+  update-inventory:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Skript ausführbar machen
+        run: chmod +x ./.github/scripts/show-container-releases.sh
+
+      - name: run container
+        id: check
+        run: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+          echo "$(pwd)"
+          ls -al
+          podman --version
+          echo "### Package Inventory (Stand: $(date +"%Y-%m-%d %H:%M:%S %Z"))" > ./PackageInventory.md
+
+      - name: Container starten und Skript ausführen (Alpine)
+        run: |
+          podman run --rm \
+            -v "$(pwd):/out:z" \
+            --entrypoint /bin/sh \
+            ghcr.io/widukind42/ytdlp_debian \
+            ./.github/scripts/show-container-releases.sh >> ./PackageInventory.md
+
+      - name: Änderungen commiten
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add ./PackageInventory.md
+          git commit -m "Update release info [skip ci]"
+          git push
