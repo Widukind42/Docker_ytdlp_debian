@@ -1,4 +1,4 @@
-### Package Inventory (Stand: 2026-08-26 14:17:19 UTC)
+### Package Inventory (Stand: 2026-08-26 14:44:55 UTC)
 - Debian GNU/Linux 13 (trixie)
 - Python 3.14.7
 - yt-dlp version 2026.08.19
