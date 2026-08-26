@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write  # Erlaubt das Pushen zu GHCR
     
     steps:
@@ -23,9 +23,6 @@ jobs:
           echo "Registry: ghcr.io"
           echo "Username: ${{ github.actor }}"
           echo "Repository: ${{ github.repository }}"
-          echo "Token: ${{ secrets.GITHUB_TOKEN }}"
-          echo "ghcr Token: ${{ secrets.GHCR_TOKEN }}"
-          
       
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -42,3 +39,18 @@ jobs:
           docker build . --file Dockerfile --tag ghcr.io/widukind42/ytdlp_debian:latest 
           docker push ghcr.io/widukind42/ytdlp_debian:latest
 
+      - name: Container starten und Skript ausführen (Debian)
+        run: |
+          podman run --rm \
+            -v "$(pwd):/data:z" \
+            --entrypoint /bin/sh \
+            ghcr.io/widukind42/ytdlp_debian \
+            ./.github/scripts/show-container-releases.sh >> ./PackageInventory.md
+
+      - name: Änderungen commiten
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add ./PackageInventory.md
+          git commit -m "Update release info [skip ci]"
+          git push
