@@ -1,7 +1,7 @@
 name: Update Inventory Info
 on:
-  push:
-    branches: [ main ]  # Läuft bei Push in den main-Branch
+  # push:
+  #   branches: [ main ]  # Läuft bei Push in den main-Branch
   workflow_dispatch:    # Ermöglicht manuelles Auslösen über die GitHub-Oberfläche
   
 jobs:
