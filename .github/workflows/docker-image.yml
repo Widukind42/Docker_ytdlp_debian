@@ -8,7 +8,8 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-
+  workflow_dispatch:    # Ermöglicht manuelles Auslösen über die GitHub-Oberfläche
+  
 jobs:
   build:
     runs-on: ubuntu-latest
