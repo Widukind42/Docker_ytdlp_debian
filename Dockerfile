@@ -5,7 +5,7 @@
 FROM python:3.14-slim-trixie
 MAINTAINER Widukind <Widukind@proton.me>
 
-COPY --from=denoland/deno:bin-2.9.4 /deno /usr/local/bin/deno
+COPY --from=denoland/deno:bin-2.9.5 /deno /usr/local/bin/deno
 #COPY --from=denoland/deno:debian /deno /usr/local/bin/deno
 COPY --from=mwader/static-ffmpeg /ffmpeg /usr/local/bin/
 COPY --from=mwader/static-ffmpeg /ffprobe /usr/local/bin/
