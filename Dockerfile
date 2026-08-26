@@ -16,6 +16,8 @@ RUN pip3 install --break-system-packages --no-cache-dir --upgrade "yt-dlp[defaul
 # Try to run it so we know it works
 RUN yt-dlp --version
 
+RUN yt-dlp --list-impersonate-targets
+
 WORKDIR /data
 
 ENTRYPOINT ["yt-dlp"]
