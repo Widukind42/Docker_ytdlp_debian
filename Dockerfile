@@ -2,7 +2,7 @@
 # Dockerfile for ytdlp_debian
 # based on python:3.14-slim which is in fact on debian
 
-FROM python:3.15-slim-trixie
+FROM python:3.14-slim-trixie
 MAINTAINER Widukind <Widukind@proton.me>
 
 COPY --from=denoland/deno:bin-2.9.7 /deno /usr/local/bin/deno
